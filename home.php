@@ -39,7 +39,7 @@
                 <div class="col-md-12">
                     <div class="section-heading">
                         <h3>Giá xe</h3>
-                        <a href="offers.php">Hiển thị thêm<i class="fa fa-angle-right"></i></a>
+                        <a href="#">Hiển thị thêm<i class="fa fa-angle-right"></i></a>
                     </div>
                 </div>
                 <!-- kết nối -->
