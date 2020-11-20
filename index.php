@@ -32,7 +32,7 @@
 
     <!-- Thông tin trên thanh tiêu đề -->
     <header class="headerNav">
-        <!-- navbar navbar-expand-lg : class này giữ cho navbar được năm ngang khi thi bé lại -->
+        <!-- navbar navbar-expand-lg : class này giữ cho navbar được năm ngang khi thu bé lại -->
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
