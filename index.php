@@ -48,12 +48,12 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#" >Trang chủ</a>
+                            <a id='pageMain' class="nav-link" href="#">Trang chủ</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#" >Cho thuê</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Giá xe ô tô</a></li>
-                        <li class="nav-item active"><a class="nav-link" href="#">Bài viết</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Liên hệ</a></li>
+                        <li class="nav-item"><a id='pageChoThe' class="nav-link" href="#">Cho thuê</a></li>
+                        <li class="nav-item"><a id='pageGiaXe' class="nav-link" href="#">Giá xe ô tô</a></li>
+                        <li class="nav-item active"><a id='pageBaiViet' class="nav-link" href="#">Bài viết</a></li>
+                        <li class="nav-item"><a id='pageLienHe' class="nav-link" href="#">Liên hệ</a></li>
                     </ul>
                 </div>
             </div>
@@ -61,9 +61,27 @@
     </header>
 
     <div class="body">
-        <?php
+        <div class="home">
+            <?php
             include("home.php");
-        ?>
+            ?>
+        </div>
+
+        <div class="chothue">
+        <h1>cho thuê</h1>
+        </div>
+
+        <div class="giaxe">
+          <h1>gia xe</h1>
+        </div>
+
+        <div class="baiviet">
+            <h1>bai viet</h1>
+        </div>
+
+        <div class="lienhe">
+            <h1>lien he</h1>
+        </div>
     </div>
 
 
@@ -125,8 +143,8 @@
             </div>
         </div>
 
-        <script src="assets/js/animation.js">
-        </script>
+        <script src="assets/js/animation.js"></script>
+        <script src="assets/js/control.js"></script>
     </footer>
 </body>
 
