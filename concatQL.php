@@ -11,8 +11,16 @@
         if(mysqli_query($conn,$sql))
         {
             echo '<script language="javascript">';
-                echo 'alert("Đăng kí thành công !")';  
-                echo '</script>';
+			echo 'var r=confirm("Đăng kí thành công!");
+			if (r==true)
+			{
+				location.replace("index.php");
+			}
+			else
+			{
+				location.replace("index.php");
+			}';
+			echo '</script>';
         }
         else
         {

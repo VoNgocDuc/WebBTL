@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="assets/css/mains.css">
     <link rel="stylesheet" href="assets/css/aboutus.css">
     <link rel="stylesheet" href="assets/css/concat.css">
+    <link rel="stylesheet" href="assets/css/rentalcar.css">
 </head>
 
 
@@ -68,11 +69,15 @@
         </div>
 
         <div class="chothue">
-            <h1>cho thuê</h1>
+            <?php
+            include("rentalcar.php");
+            ?>
         </div>
 
         <div class="baiviet">
-            <h1>bai viet</h1>
+            <?php
+            include("blog.php");
+            ?>
         </div>
 
         <div class="thongtin">
@@ -167,6 +172,7 @@
 
     });
     </script>
+    
 </body>
 
 </html>

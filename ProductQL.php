@@ -1,8 +1,7 @@
-
 <?php
     require("databaseconnect.php");
     session_start();
-    /*if(!$_SESSION["tentaikhoan"])
+    if(!$_SESSION["tentaikhoan"])
     {
         header('Location:login.php');
     }
@@ -10,7 +9,7 @@
     {
         echo "Xin chào : " . $_SESSION["tentaikhoan"];
         echo "<a href='login.php?task=logout' class='btn btn-danger'>Đăng xuất </a>";
-    }*/
+    }
 
     if(isset($_GET["task"]) && $_GET["task"] == "delete")
     {   
@@ -27,7 +26,7 @@
     }
     if(isset($_POST["submit"])){
         //khởi tạo biến sql insert data
-        $sql_insert = "insert into product(name,linkimage,price,description,pricerental,status,timerental,unit) values(N'".$_POST["productname"]."','../web4/assets/img/".$_POST["file"]."','".$_POST["price"]."','".$_POST["description"]."','".$_POST["pricerental"]."','".$_POST["status"]."','".$_POST["timer"]."','".$_POST["unit"]."')";
+        $sql_insert = "insert into product(name,linkimage,price,description,pricerental,status,timerental,unit) values(N'".$_POST["productname"]."','./assets/img/".$_POST["file"]."','".$_POST["price"]."','".$_POST["description"]."','".$_POST["pricerental"]."','".$_POST["status"]."','".$_POST["timer"]."','".$_POST["unit"]."')";
         //kiêm tra insert có thanh công hay không
         
         if(mysqli_query($conn,$sql_insert))
@@ -46,7 +45,7 @@
    
     if(isset($_POST["btn_update"]))
     {
-        $sql_update = "update product set name = N'".$_POST["productname"]."',linkimage='".$_POST["linkanh"]."',price='".$_POST["price"]."',description='".$_POST["description"]."',pricerental='".$_POST["pricerental"]."',status ='".$_POST["status"]."',timerental='".$_POST["timer"]."',unit='".$_POST["unit"]."' where id= ".$_POST["ma_dm"];
+        $sql_update = "update product set name = N'".$_POST["productname"]."',linkimage='./assets/img/".$_POST["linkanh"]."',price='".$_POST["price"]."',description='".$_POST["description"]."',pricerental='".$_POST["pricerental"]."',status ='".$_POST["status"]."',timerental='".$_POST["timer"]."',unit='".$_POST["unit"]."' where id= ".$_POST["ma_dm"];
         if(mysqli_query($conn,$sql_update))
         {
             echo "cập nhât dữ liệu thành công";
@@ -73,10 +72,11 @@
 </head>
 
 <body>
-    
+
     <h2 style="text-align:center; color:red" id="Title">Quản Lý Thông Tin Xe</h2>
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#exampleModal">Thêm sản phẩm</button>
-    
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#exampleModal">Thêm sản
+        phẩm</button>
+
     <table class="table">
         <!--tạo tiêu đề cho bảng-->
         <tr>
@@ -107,18 +107,27 @@
                         {   
                             echo "<tr><form action='ProductQL.php' method='post'>";
                             echo "<td>".$row["id"]."</td>";
-                            echo "<td><input type='text' name='productname' value='".$row["name"]."'</td>";
-                            echo "<td><input type='text' name='linkanh' value='".$row["linkimage"]."'</td>";
-                            echo "<td><input type='text' name='price' value='".$row["price"]."'</td>";
-                            echo "<td><textarea id='description' name='description' rows='5' cols='50' value='".$row["description"]."'></textarea></td>";
-                            echo "<td><input type='text' name='pricerental' value='".$row["pricerental"]."'</td>";
-                            echo "<td><input type='text' name='status' value='".$row["status"]."'</td>";
-                            echo "<td><input type='text' name='timer' value='".$row["timerental"]."'</td>";
-                            echo "<td><input type='text' name='unit' value='".$row["unit"]."'</td>";
+                            echo "<td><input size='10'type='text' name='productname' value='".$row["name"]."'></td>";
+                            echo "<td>
+                            <form action='' method='POST' enctype='multipart/form-data'>
+ 
+                            <input type='file' name='linkanh' id='linkanh' >
+                            <input type='button' value='Upload' id='btn_upload'>
+                            
+                            </td>";
+                           
+
+                            //echo "<td><input size='10' type='text' name='linkanh' value='".$row["linkimage"]."'></td>";
+                            echo "<td><input size='10'type='text' name='price' value='".$row["price"]."'></td>";
+                            echo "<td><textarea id='description' name='description' rows='10' cols='80' >".$row["description"]."</textarea></td>";
+                            echo "<td><input size='10' type='text' name='pricerental' value='".$row["pricerental"]."'></td>";
+                            echo "<td><input size='10' type='text' name='status' value='".$row["status"]."'></td>";
+                            echo "<td><input size='10' type='text' name='timer' value='".$row["timerental"]."'></td>";
+                            echo "<td><input size='10' type='text' name='unit' value='".$row["unit"]."'></td>";
                             echo "<input type='hidden' name='ma_dm' value='".$row["id"]."'>";
                             echo "<td>";
                             echo "<input type = 'submit' name = 'btn_update' value = 'Cập nhât' class='btn btn-primary'>";
-                            echo "<td>";
+                            echo "</td>";
                             echo "</form></tr>";
                         }
                     }
@@ -152,91 +161,106 @@
             mysqli_close($conn);
             
         ?>
-        
+
     </table>
-    
-   
+
+
+
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Thêm sản phẩm</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="contact-form">
-              <form action="ProductQL.php" id="contact" method="post">
-                  <table>
-                  <tr>
-                  <td>Nhập tên sản phẩm</td>
-                  <td><input type="text" class="form-control" placeholder="Nhập tên sản phẩm" required="" id="productname" name="productname"></td>
-                  </tr>
-                  
-                  
-                  <tr>
-                  <td>Nhập giá</td>
-                  <td><input type="text" class="form-control" placeholder="Nhập giá" required="" id="price" name="price"></td>
-                  </tr>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thêm sản phẩm</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="contact-form">
+                        <form action="ProductQL.php" id="contact" method="post">
+                            <table>
+                                <tr>
+                                    <td>Nhập tên sản phẩm</td>
+                                    <td><input type="text" class="form-control" placeholder="Nhập tên sản phẩm"
+                                            required="" id="productname" name="productname"></td>
+                                </tr>
 
-                  <tr>
-                  <td>Nhập trạng thái</td>
-                  <td><input type="text" class="form-control" placeholder="Trạng thái" required="" id="status" name="status"></td>
-                  </tr>
 
-                  <tr>
-                  <td>Nhập giá thuê</td>
-                  <td><input type="text" class="form-control" placeholder="Nhập giá thuê" required="" id="pricerental" name="pricerental"></td>
-                  </tr>
+                                <tr>
+                                    <td>Nhập giá</td>
+                                    <td><input type="text" class="form-control" placeholder="Nhập giá" required=""
+                                            id="price" name="price"></td>
+                                </tr>
 
-                  <tr>
-                  <td>Nhập thông tin sản phẩm</td>
-                  <td><textarea id="description" name="description" rows="5" cols="50"> </textarea></td>
-                  </tr>
+                                <tr>
+                                    <td>Nhập trạng thái</td>
+                                    <td><input type="text" class="form-control" placeholder="Trạng thái" required=""
+                                            id="status" name="status"></td>
+                                </tr>
 
-                  
-                  
-                  <tr>
-                  <td>Thời gian thuê</td>
-                  <td><input type="text" class="form-control" placeholder="Thời gian" required="" id="timer" name="timer"></td>
-                  </tr>
+                                <tr>
+                                    <td>Nhập giá thuê</td>
+                                    <td><input type="text" class="form-control" placeholder="Nhập giá thuê" required=""
+                                            id="pricerental" name="pricerental"></td>
+                                </tr>
 
-                  <tr>
-                  <td>Số lượng</td>
-                  <td><input type="text" class="form-control" placeholder="Số lượng" required="" id="unit" name="unit"></td>
-                  </tr>
+                                <tr>
+                                    <td>Nhập thông tin sản phẩm</td>
+                                    <td><textarea id="description" name="description" rows="10" cols="80"> </textarea>
+                                    </td>
+                                </tr>
 
-                  <tr>
-                  <td> Link ảnh</td>
-                  <td>
-                  <form action="ProductQL.php" method="POST" enctype="multipart/form-data">
- 
-                  <input type="file" name="file" id="file">
-                  <input type='button' class='btn btn-info' value='Upload' id='btn_upload'>
-                  <div id="preview"></div>
-                  </form>
-                  </td>
 
-                  </tr>
-                  
-                  </table>
-                  
-                  
-            
-                  
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-                    <button type="submit" name="submit" id="submit" class="btn btn-primary"> Đặt ngay</button>
-                  </div>
-                </form>
-           </div>
-          </div>
 
+                                <tr>
+                                    <td>Thời gian thuê</td>
+                                    <td><input type="text" class="form-control" placeholder="Thời gian" required=""
+                                            id="timer" name="timer"></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Số lượng</td>
+                                    <td><input type="text" class="form-control" placeholder="Số lượng" required=""
+                                            id="unit" name="unit"></td>
+                                </tr>
+
+                                <tr>
+                                    <td> Link ảnh</td>
+                                    <td>
+                                        <form action="ProductQL.php" method="POST" enctype="multipart/form-data">
+
+                                            <input type="file" name="file" id="file">
+                                            <input type='button' class='btn btn-info' value='Upload' id='btn_upload'>
+                                            <div id="preview"></div>
+                                        </form>
+                                    </td>
+
+                                </tr>
+
+                            </table>
+
+
+
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                                <button type="submit" name="submit" id="submit" class="btn btn-primary"> Đặt
+                                    ngay</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
         </div>
-      </div>
     </div>
+    <script src="assets/ckeditor/ckeditor.js"></script>
+    <script>
+    CKEDITOR.replace('description');
+    </script>
     <script src="../assets/js/uploadfile.js"></script>
 </body>
+
 </html>
