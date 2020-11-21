@@ -7,15 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="assets/images/favicon.ico">
     <title>Car rental review</title>
     <link rel="icon" href="assets/img/favicon.ico">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/mains.css">
-
+    <link rel="stylesheet" href="assets/css/aboutus.css">
+    <link rel="stylesheet" href="assets/css/concat.css">
 </head>
 
 
@@ -51,8 +51,8 @@
                             <a id='pageMain' class="nav-link" href="#">Trang chủ</a>
                         </li>
                         <li class="nav-item"><a id='pageChoThe' class="nav-link" href="#">Cho thuê</a></li>
-                        <li class="nav-item"><a id='pageGiaXe' class="nav-link" href="#">Giá xe ô tô</a></li>
                         <li class="nav-item active"><a id='pageBaiViet' class="nav-link" href="#">Bài viết</a></li>
+                        <li class="nav-item"><a id='pageThongTin' class="nav-link" href="#">Thông Tin</a></li>
                         <li class="nav-item"><a id='pageLienHe' class="nav-link" href="#">Liên hệ</a></li>
                     </ul>
                 </div>
@@ -68,19 +68,23 @@
         </div>
 
         <div class="chothue">
-        <h1>cho thuê</h1>
-        </div>
-
-        <div class="giaxe">
-          <h1>gia xe</h1>
+            <h1>cho thuê</h1>
         </div>
 
         <div class="baiviet">
             <h1>bai viet</h1>
         </div>
 
+        <div class="thongtin">
+            <?php
+            include("aboutus.php");
+            ?>
+        </div>
+
         <div class="lienhe">
-            <h1>lien he</h1>
+            <?php
+            include("concat.php");
+            ?>
         </div>
     </div>
 
@@ -141,11 +145,28 @@
                     </div>
                 </div>
             </div>
+
+            <script src="assets/js/control.js"></script>
         </div>
 
-        <script src="assets/js/animation.js"></script>
-        <script src="assets/js/control.js"></script>
     </footer>
+
+    <script>
+    jQuery(document).ready(function($) {
+        // load hiệu ứng khi khởi động preload bong mơ 0, 
+        //thự hiện trong 0,6s
+        //sau khi hoàn thành ẩn preloader đi
+
+        $("#preloader").animate({
+            'opacity': '0'
+        }, 600, function() {
+            setTimeout(function() {
+                $("#preloader").css("visibility", "hidden").fadeOut();
+            }, 300);
+        });
+
+    });
+    </script>
 </body>
 
 </html>

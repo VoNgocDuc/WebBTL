@@ -1,0 +1,34 @@
+.social-icons li a{
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    line-height: 50px;
+    background-color: #eee;
+    color: #121212;
+    font-size: 18px;
+    text-align: center;
+    transition: all .3s;
+
+}
+
+.social-icons li {
+    display: inline;
+}
+
+.left-content{
+    margin-left: 10%;
+}
+
+.social-icons{
+    margin-top: 5%;;
+}
+
+.team-members{
+    margin-top: 3%;
+}
+.section-heading h2{
+    margin-bottom: 1%;
+}
+#content-footer{
+    margin-bottom: 1%;
+}
