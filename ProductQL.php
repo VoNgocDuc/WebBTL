@@ -190,7 +190,7 @@
 
                                 <tr>
                                     <td>Nhập giá</td>
-                                    <td><input type="text" class="form-control" placeholder="Nhập giá" required=""
+                                    <td><input type="number" class="form-control" placeholder="Nhập giá" required=""
                                             id="price" name="price"></td>
                                 </tr>
 
@@ -202,7 +202,7 @@
 
                                 <tr>
                                     <td>Nhập giá thuê</td>
-                                    <td><input type="text" class="form-control" placeholder="Nhập giá thuê" required=""
+                                    <td><input type="number" class="form-control" placeholder="Nhập giá thuê" required=""
                                             id="pricerental" name="pricerental"></td>
                                 </tr>
 
@@ -216,7 +216,7 @@
 
                                 <tr>
                                     <td>Thời gian thuê</td>
-                                    <td><input type="text" class="form-control" placeholder="Thời gian" required=""
+                                    <td><input type="number" class="form-control" placeholder="Thời gian" required=""
                                             id="timer" name="timer"></td>
                                 </tr>
 
