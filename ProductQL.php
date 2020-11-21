@@ -54,7 +54,7 @@
         }
         else
         {
-            echo "cập nhật dữ liệu thất bại" . mysqli_error($conn);
+            echo "câpj nhật dữ liệu thất baij" . mysqli_error($conn);
         }
     }
 ?>
