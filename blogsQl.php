@@ -2,7 +2,7 @@
 <?php
     require("databaseconnect.php");
     session_start();
-    /*if(!$_SESSION["tentaikhoan"])
+    if(!$_SESSION["tentaikhoan"])
     {
         header('Location:login.php');
     }
@@ -11,7 +11,6 @@
         echo "Xin chào : " . $_SESSION["tentaikhoan"];
         echo "<a href='login.php?task=logout' class='btn btn-danger'>Đăng xuất </a>";
     }
-    */
     if(isset($_GET["task"]) && $_GET["task"] == "delete")
     {   
         //echo "mã danh mục là ". $_GET["id"];
@@ -46,9 +45,6 @@
    
     if(isset($_POST["btn_update"]))
     {
-    // {
-    //     $sql_update = "update blogs set name = N'".$_POST["tenbaiviet"]."',description=N'".$_POST["tieude"]."',linkimage='".$_POST["linkanh"]."',content=N'".$_POST["content"]."',date='".$_POST["date"]."',author =N'".$_POST["author"]."' where id= '".$_POST["ma_dm"]."';";
-        
         $sql = "update blogs set name =N'".$_POST['tenbaiviet']."', description =N'".$_POST['tieude']."', linkimage ='./assets/img/".$_POST['linkanh']."', content=N'".$_POST['content']."',date ='".$_POST['date']."', author =N'".$_POST['author']."'  where id = '".$_POST['ma_dm']."' ";
         if(mysqli_query($conn,$sql))
         {
@@ -57,7 +53,7 @@
         }
         else
         {
-            echo "câpj nhật dữ liệu thất baij" . mysqli_error($conn);
+            echo "Cập nhật dữ liệu thất bại! " . mysqli_error($conn);
         }
     }
 ?>
@@ -206,7 +202,7 @@
 
                   <tr>
                   <td>Tác giả</td>
-                  <td><input type="text" class="form-control" value="dat"  id="author" name="author"></td>
+                  <td><input type="text" class="form-control" value= <?php echo $_SESSION["tentaikhoan"] ?>  id="author" name="author"></td>
                   </tr>
 
                   <tr>

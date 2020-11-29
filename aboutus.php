@@ -39,6 +39,49 @@
     <?php
         }   
         } ?>
+    
+    
+    <div class="team-members">
+      <div class="container">
+        <div class="row">
+          <?php
+            include("databaseconnect.php");
+            $sql = "Select * from team" ;
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+            ?>
+          <div class="col-md-4">
+            <div class="team-member">
+              <div class="thumb-container">
+                <img src="<?php echo $row["linkImage"]; ?>" alt="">
+                <div class="hover-effect">
+                  <div class="hover-content">
+                    <ul class="social-icons">
+                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                      <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                      <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="down-content">
+                <h4><?php echo $row["name"]; ?></h4>
+                <span><?php echo $row["position"]; ?></span>
+                <p><?php echo $row["description"]; ?></p>
+              </div>
+            </div>
+          </div>
+          <?php
+          }   
+          } ?>
+        </div>
+      </div>
+    </div>
+    
+    
+    
     <?php
     include("databaseconnect.php");
     $sql = "Select * from aboutus where id=2";

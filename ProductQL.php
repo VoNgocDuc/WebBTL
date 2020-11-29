@@ -117,7 +117,6 @@
                             </td>";
                            
 
-                            //echo "<td><input size='10' type='text' name='linkanh' value='".$row["linkimage"]."'></td>";
                             echo "<td><input size='10'type='text' name='price' value='".$row["price"]."'></td>";
                             echo "<td><textarea id='description' name='description' rows='10' cols='80' >".$row["description"]."</textarea></td>";
                             echo "<td><input size='10' type='text' name='pricerental' value='".$row["pricerental"]."'></td>";

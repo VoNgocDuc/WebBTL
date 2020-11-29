@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/mains.css">
     <link rel="stylesheet" href="assets/css/aboutus.css">
@@ -36,7 +37,7 @@
         <!-- navbar navbar-expand-lg : class này giữ cho navbar được năm ngang khi thu bé lại -->
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="index.php">
                     <img src="assets/img/logo.png" alt="">
                 </a>
 
