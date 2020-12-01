@@ -5,6 +5,7 @@
     if(!$_SESSION["tentaikhoan"])
     {
         header('Location:login.php');
+        $_SESSION["linkdangql"] = "blogsQL.php";
     }
     else
     {

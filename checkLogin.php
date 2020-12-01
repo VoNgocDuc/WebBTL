@@ -46,8 +46,13 @@
 				//tiến hành lưu tên đăng nhập vào session để tiện xử lý sau này
 				$_SESSION["tentaikhoan"] = $username;
                 // Thực thi hành động sau khi lưu thông tin vào session
-                // ở đây mình tiến hành chuyển hướng trang web tới một trang gọi là index.php
-                header('Location: ProductQL.php');
+				// ở đây mình tiến hành chuyển hướng trang web tới một trang gọi là index.php
+				if($_SESSION["linkdangql"]!=''){
+					header('Location: '.$_SESSION["linkdangql"]);
+				}
+                else{
+					header('Location: ProductQL.php');
+				}
 			}
 		}
 	}
