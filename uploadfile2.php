@@ -1,13 +1,13 @@
 <?php
 $response = 0;
- if (!isset($_FILES['file']))
+ if (!isset($_FILES['linkanh']))
  {
      $response= "Vui long chon file";
      echo $response;
     die;
  }
 // file name
-$filename = $_FILES['file']['name'];
+$filename = $_FILES['linkanh']['name'];
 
 // Location
 $path1 = 'assets/img/'.$filename;
@@ -45,7 +45,7 @@ $allowUpload   = true;
 
 if($allowUpload){
   // Upload file
-  if(move_uploaded_file($_FILES['file']['tmp_name'],$path1)){
+  if(move_uploaded_file($_FILES['linkanh']['tmp_name'],$path1)){
     $response = "Đã upload file thành công :)";
     echo $response;
   }

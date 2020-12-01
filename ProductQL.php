@@ -113,7 +113,7 @@
                             <form action='' method='POST' enctype='multipart/form-data'>
  
                             <input type='file' name='linkanh' id='linkanh' >
-                            <input type='button' value='Upload' id='btn_upload'>
+                            <input type='button' value='Upload' id='btn_upload2'>
                             
                             </td>";
                            
@@ -233,7 +233,7 @@
 
                                             <input type="file" name="file" id="file">
                                             <input type='button' class='btn btn-info' value='Upload' id='btn_upload'>
-                                            <div id="preview"></div>
+                                            
                                         </form>
                                     </td>
 

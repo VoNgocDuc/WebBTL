@@ -90,7 +90,7 @@
 
                             echo "<td><input size='10'type='text' name='customerSubject' value='".$row["subject"]."'></td>";
                             echo "<td><input size='10' type='text' name='customerMessage' value='".$row["message"]."'></td>";
-                            echo "<input name='ma_dm' value='".$row["id"]."'>";
+                            echo "<input name='ma_dm' type='hidden' value='".$row["id"]."'>";
                             echo "<td>";
                             echo "<input type = 'submit' name = 'btn_update' value = 'Cập nhật' class='btn btn-primary'>";
                             echo "</td>";

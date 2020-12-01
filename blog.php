@@ -27,9 +27,9 @@
 
                         <div class="col-md-6">
                             <div class="service-item">
-                            <form action="dat.php?task=bv&id=<?php echo $row["id"]; ?>" method="post">
+                            <form action="baiviet.php?task=bv&id=<?php echo $row["id"]; ?>" method="post">
                   <?php
-                  echo "<a href='dat.php?task=bv&id=".$row["id"]."'>";
+                  echo "<a href='baiviet.php?task=bv&id=".$row["id"]."'>";
                   ?>
                   
                     <button name="anh" class="services-item-image"><img src="<?php echo $row["linkimage"]?>" class="img-fluid" alt=""></button>

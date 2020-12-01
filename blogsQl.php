@@ -66,9 +66,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản Lý Blog</title>
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     
     
     <script src="./assets/js/uploadfile.js"></script>
@@ -113,7 +114,7 @@
                             <form action='' method='POST' enctype='multipart/form-data'>
  
                             <input type='file' name='linkanh' id='linkanh' >
-                            
+                            <input type='button' value='Upload' id='btn_upload2'>
                             
                             </td>";
                             
